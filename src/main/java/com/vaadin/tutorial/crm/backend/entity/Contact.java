@@ -8,17 +8,17 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class Contact extends AbstractEntity implements Cloneable {
 
-    public enum Status{
+    public enum Status {
         ImportedLead, NotContacted, Contacted, Customer, ClosedLost
     }
 
     @NotNull
     @NotEmpty
-    private String first_name = "";
+    private String firstName = "";
 
     @NotNull
     @NotEmpty
-    private String last_name = "";
+    private String lastName = "";
 
     @ManyToOne
     @JoinColumn(name = "company_id")
@@ -33,28 +33,12 @@ public class Contact extends AbstractEntity implements Cloneable {
     @NotEmpty
     private String email = "";
 
-    public String getFirst_name() {
-        return first_name;
+    public String getEmail() {
+        return email;
     }
 
-    public void setFirst_name(String first_name) {
-        this.first_name = first_name;
-    }
-
-    public String getLast_name() {
-        return last_name;
-    }
-
-    public void setLast_name(String last_name) {
-        this.last_name = last_name;
-    }
-
-    public Company getCompany() {
-        return company;
-    }
-
-    public void setCompany(Company company) {
-        this.company = company;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public Status getStatus() {
@@ -65,16 +49,33 @@ public class Contact extends AbstractEntity implements Cloneable {
         this.status = status;
     }
 
-    public String getEmail() {
-        return email;
+    public String getLastName() {
+        return lastName;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Company getCompany() {
+        return company;
     }
 
     @Override
     public String toString() {
-        return first_name+" "+last_name;
+        return firstName + " " + lastName;
     }
+
 }
