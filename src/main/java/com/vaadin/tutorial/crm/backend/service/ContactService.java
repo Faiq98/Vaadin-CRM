@@ -4,7 +4,6 @@ import com.vaadin.tutorial.crm.backend.entity.Company;
 import com.vaadin.tutorial.crm.backend.entity.Contact;
 import com.vaadin.tutorial.crm.backend.repository.CompanyRepository;
 import com.vaadin.tutorial.crm.backend.repository.ContactRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
@@ -19,9 +18,8 @@ import java.util.stream.Stream;
 public class ContactService {
     private static final Logger LOGGER = Logger.getLogger(ContactService.class.getName());
 
-    @Autowired
-    private ContactRepository contactRepository;
-    private CompanyRepository companyRepository;
+    private final ContactRepository contactRepository;
+    private final CompanyRepository companyRepository;
 
     public ContactService(ContactRepository contactRepository, CompanyRepository companyRepository) {
         this.contactRepository = contactRepository;
